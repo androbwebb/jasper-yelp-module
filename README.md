@@ -3,7 +3,9 @@ A Yelp module for [Jasper](https://github.com/jasperproject/jasper-client)
 
 
 ## Sample Conversation:
-> JASPER, FIND ME A RESTAURANT
+> JASPER
+
+> FIND ME A RESTAURANT
 
  what kind of cuisine? 
 

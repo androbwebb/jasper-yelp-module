@@ -24,7 +24,7 @@ YELP_CURRENT_LOCATION = "Brighton, MA"
 
 def handle(text, mic, profile):
     """
-        Reports movie times.
+        Searches & iterates over yelp results.
 
         Arguments:
         text -- user-input, typically transcribed speech

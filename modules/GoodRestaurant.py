@@ -1,7 +1,7 @@
 # -*- coding: utf-8-*-
 
 import re
-from client.libs.yelp import search, get_business, parse_biz_tree, price_to_text
+from libs.yelp import search, get_business, parse_biz_tree, price_to_text
 import webbrowser
 
 WORDS = ["RESTAURANT", "FIND", "EAT", "FOOD"]
@@ -10,6 +10,7 @@ WORDS = ["RESTAURANT", "FIND", "EAT", "FOOD"]
 AFFIRMATIVE = ["YES", "YEAH", "SURE", "YAH", "YA"]
 NEGATIVE = ["NO", "NEGATIVE", "NAH", "NA", "NOPE"]
 
+# YELP-SPECIFIC WORDS
 YELP_PRICE_RANGE = ["PRICE"]
 YELP_REVIEW = ["REVIEW", "SAY", "SAID"]
 YELP_ATTIRE = ["ATTIRE", "DRESS", "CODE", "WEAR", "CLOTHES"]

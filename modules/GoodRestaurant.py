@@ -6,6 +6,9 @@ import webbrowser
 
 WORDS = ["RESTAURANT", "FIND", "EAT", "FOOD"]
 
+# SHOULD PROBABLY BE GLOBAL IN JASPER
+AFFIRMATIVE = ["YES", "YEAH", "SURE", "YAH", "YA"]
+NEGATIVE = ["NO", "NEGATIVE", "NAH", "NA", "NOPE"]
 
 YELP_PRICE_RANGE = ["PRICE"]
 YELP_REVIEW = ["REVIEW", "SAY", "SAID"]
@@ -34,10 +37,10 @@ def handle(text, mic, profile):
     mic.say("Nearby?")
     nearby = mic.activeListen()
 
-    if nearby in ["NO", "NEGATIVE", "NAH", "NA"]:
+    if nearby in NEGATIVE:
         mic.say("Where?")
         location = mic.activeListen()
-    elif nearby in ["YES", "YAH", "YA", "SURE"]:
+    elif nearby in AFFIRMATIVE:
         location = YELP_CURRENT_LOCATION
     else:
         location = nearby
@@ -110,12 +113,12 @@ def handle(text, mic, profile):
             command = mic.activeListen()
 
         # Confirm this restaurant
-        if any(confirm in command for confirm in["YES", "YEAH", "SURE", "YAH", "OPEN", "WEB"]):
+        if any(confirm in command for confirm in AFFIRMATIVE + ["OPEN", "WEB"]):
             webbrowser.open(restaurant['url'])
             break
 
         # "Nah, what else is there?"
-        if any(negative in command for negative in["NAH", "NA", "NO", "GOING", "NOPE", "ELSE", "OTHER"]):
+        if any(negative in command for negative in NEGATIVE + ["ELSE", "OTHER"]):
             continue
 
         # Bail

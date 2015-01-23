@@ -15,6 +15,9 @@ YELP_RESERVATIONS = ["RESERVE", "RESERVATION"]
 
 YELP_MORE_INFO = YELP_PRICE_RANGE + YELP_ATTIRE + YELP_ALCOHOL + YELP_RESERVATIONS
 
+#DEFAULTS
+YELP_CURRENT_LOCATION = "Brighton, MA"
+
 def handle(text, mic, profile):
     """
         Reports movie times.
@@ -35,7 +38,7 @@ def handle(text, mic, profile):
         mic.say("Where?")
         location = mic.activeListen()
     elif nearby in ["YES", "YAH", "YA", "SURE"]:
-        location = "Brighton, MA"
+        location = YELP_CURRENT_LOCATION
     else:
         location = nearby
 
